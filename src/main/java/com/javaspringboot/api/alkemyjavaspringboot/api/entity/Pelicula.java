@@ -8,6 +8,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Pelicula implements Serializable {
@@ -31,7 +32,7 @@ public class Pelicula implements Serializable {
 
     @NotEmpty
     @OneToMany
-    private Personaje character;
+    private List<Personaje> characterList;
 
     @ManyToOne
     private Genero gender;
@@ -79,11 +80,19 @@ public class Pelicula implements Serializable {
         this.picture = picture;
     }
 
-    public Personaje getCharacter() {
-        return character;
+    public Genero getGender() {
+        return gender;
     }
 
-    public void setCharacter(Personaje character) {
-        this.character = character;
+    public void setGender(Genero gender) {
+        this.gender = gender;
+    }
+
+    public List<Personaje> getCharacterList() {
+        return characterList;
+    }
+
+    public void setCharacterList(List<Personaje> characterList) {
+        this.characterList = characterList;
     }
 }

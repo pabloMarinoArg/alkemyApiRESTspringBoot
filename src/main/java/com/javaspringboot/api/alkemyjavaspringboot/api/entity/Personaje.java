@@ -3,6 +3,7 @@ package com.javaspringboot.api.alkemyjavaspringboot.api.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
@@ -19,11 +20,11 @@ public class Personaje implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    @NotEmpty
+    @Min(value=1)
     @Column(nullable = false)
     private Integer age;
 
-    @NotEmpty
+
     @Column(nullable = false)
     private Double weight;
 
@@ -33,8 +34,8 @@ public class Personaje implements Serializable {
 
     private String picture;
 
-    @Column(nullable = false)
-    @OneToMany(mappedBy = "character")
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Pelicula> movieList;
 
     public Personaje() {
