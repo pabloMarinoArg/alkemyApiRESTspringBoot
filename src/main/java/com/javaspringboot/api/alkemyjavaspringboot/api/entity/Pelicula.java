@@ -20,7 +20,7 @@ public class Pelicula implements Serializable {
     @NotEmpty
     private String title;
 
-    @NotEmpty
+    
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
@@ -30,7 +30,7 @@ public class Pelicula implements Serializable {
 
     private String picture;
 
-    @NotEmpty
+    
     @OneToMany
     private List<Personaje> characterList;
 

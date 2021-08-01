@@ -30,7 +30,7 @@ public class PersonajeController {
     @Autowired
     private PersonajeService personajeService;
 
-    @GetMapping("/list")
+    @GetMapping
     public List<Personaje> listarPersonajes(){
         return personajeService.listadoPersonajes();
     }
@@ -162,7 +162,7 @@ public class PersonajeController {
             if(fileOldPicture.exists() && fileOldPicture.canRead()){
                 fileOldPicture.delete();
             }
-        }*/
+        }*/			
 
         return new ResponseEntity<Map<String,Object>>(response, HttpStatus.CREATED);
 
