@@ -8,7 +8,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Pelicula implements Serializable {
@@ -31,8 +33,8 @@ public class Pelicula implements Serializable {
     private String picture;
 
     
-    @OneToMany
-    private List<Personaje> characterList;
+    @ManyToMany(mappedBy = "movieList")
+    private Set<Personaje> characterList = new HashSet<>();
 
     @ManyToOne
     private Genero gender;
@@ -88,11 +90,13 @@ public class Pelicula implements Serializable {
         this.gender = gender;
     }
 
-    public List<Personaje> getCharacterList() {
-        return characterList;
-    }
+	public Set<Personaje> getCharacterList() {
+		return characterList;
+	}
 
-    public void setCharacterList(List<Personaje> characterList) {
-        this.characterList = characterList;
-    }
+	public void setCharacterList(Set<Personaje> characterList) {
+		this.characterList = characterList;
+	}
+
+  
 }

@@ -61,10 +61,25 @@ public class GeneroController {
 	}
 	
 	@PutMapping("{id}")
-	public ResponseEntity<?> modificar(){
+	public ResponseEntity<?> modificar(@RequestBody Genero genero, @PathVariable String id){
 		Map<String,Object> response = new HashMap<>();
+		Genero actual = generoService.searchGenderById(id);
+		Genero modificado = genero;
 		
 		
+		try {
+			actual.setName(modificado.getName());
+			actual.setMovieList(modificado.getMovieList());
+			actual.setPicture(modificado.getPicture());
+			
+		} catch (DataAccessException e) {
+			response.put("mensaje","Ha ocurrido un error al modificar el genero");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String,Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		response.put("mensaje", "Se ha modificado con exito el genero");
+		response.put("genero", modificado);
 		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.CREATED);
 	}
 	
@@ -72,7 +87,15 @@ public class GeneroController {
 	public ResponseEntity<?> listar(){
 		Map<String,Object> response = new HashMap<>();
 		
+		try {
+			response.put("lista", generoService.genderList());
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Ha ocurrido un error al listar los generos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		
-		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.CREATED);
+		
+		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
 	}
 }

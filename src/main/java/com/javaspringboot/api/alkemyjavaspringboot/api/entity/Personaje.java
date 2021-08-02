@@ -6,7 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Personaje implements Serializable {
@@ -35,8 +37,11 @@ public class Personaje implements Serializable {
     private String picture;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Pelicula> movieList;
+    @ManyToMany
+    @JoinTable(name="CHARACTER_MOVIES",
+    			joinColumns = @JoinColumn(name="CHARACTER_ID"),
+    			inverseJoinColumns = @JoinColumn(name="MOVIE_ID"))
+    private Set<Pelicula> movieList = new HashSet<>();
 
     public Personaje() {
     }
@@ -89,11 +94,13 @@ public class Personaje implements Serializable {
         this.picture = picture;
     }
 
-    public List<Pelicula> getMovieList() {
-        return movieList;
-    }
+	public Set<Pelicula> getMovieList() {
+		return movieList;
+	}
 
-    public void setMovieList(List<Pelicula> movieList) {
-        this.movieList = movieList;
-    }
+	public void setMovieList(Set<Pelicula> movieList) {
+		this.movieList = movieList;
+	}
+
+  
 }
