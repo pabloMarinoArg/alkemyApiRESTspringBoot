@@ -1,0 +1,3 @@
+INSERT INTO alkemy_java_challengedb.personaje (id,age,history,name,picture,weight) VALUES
+	 ('eb8fca62-12e5-4143-9967-5w9d4w57a5897',10,'personaje ppal','Mickey','https://akns-images.eonline.com/eol_images/Entire_Site/20121016/634.mm.cm.111612.jpg?fit=around%7C634:1024&output-quality=90&crop=634:1024;center,top',20.5),
+	 ('rt6ghb2-12e5-4143-9967-9c9d457a5897',15,'Galletita famosa','Gengibre','https://www.latercera.com/resizer/dYtIiOTDh1xRUc-lM85UsaeUprE=/768x0/smart/filters:quality(70):format(webp):no_upscale()/cloudfront-us-east-1.images.arcpublishing.com/copesa/LNHNSWEXLRBKXIX475EXZSVI4M.jpg',27.5);

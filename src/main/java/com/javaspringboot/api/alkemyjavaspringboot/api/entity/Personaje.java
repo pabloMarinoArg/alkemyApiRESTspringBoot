@@ -41,6 +41,7 @@ public class Personaje implements Serializable {
     @JoinTable(name="CHARACTER_MOVIES",
     			joinColumns = @JoinColumn(name="CHARACTER_ID"),
     			inverseJoinColumns = @JoinColumn(name="MOVIE_ID"))
+    
     private Set<Pelicula> movieList = new HashSet<>();
 
     public Personaje() {

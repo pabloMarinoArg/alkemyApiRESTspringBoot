@@ -2,6 +2,8 @@ package com.javaspringboot.api.alkemyjavaspringboot.api.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -21,6 +23,7 @@ public class Genero {
     private String picture;
 
     @OneToMany(mappedBy = "gender")
+    @JsonIgnore
     private List<Pelicula> movieList;
 
 	public Genero() {

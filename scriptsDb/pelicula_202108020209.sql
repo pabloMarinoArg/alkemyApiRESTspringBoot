@@ -1,0 +1,2 @@
+INSERT INTO alkemy_java_challengedb.pelicula (id,calification,creation_date,picture,title,gender_id) VALUES
+	 ('fg4fca62-12e5-4143-9967-9c9d457a5897',5,'2020-01-01','https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.sensacine.com%2Fpeliculas%2Fpelicula-40619%2F&psig=AOvVaw1ppN3WlrHEWl0KWrk2MUMW&ust=1627966158146000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCLii8tbEkfICFQAAAAAdAAAAABAD','Shrek 2','genderone');

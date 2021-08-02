@@ -1,0 +1,3 @@
+INSERT INTO alkemy_java_challengedb.genero (id,name,picture) VALUES
+	 ('eb8fca62-12e5-4143-9967-9c9d457a9382','Comedia',NULL),
+	 ('genderone','Ficcion','https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.muyinteresante.es%2Fciencia%2Ffotos%2Flas-mejores-novelas-de-ciencia-ficcion&psig=AOvVaw1CgP8ckEFq3iG7jxooFAOn&ust=1627966212529000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNCY-PDEkfICFQAAAAAdAAAAABAD');

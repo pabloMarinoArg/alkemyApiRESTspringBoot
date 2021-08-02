@@ -2,6 +2,8 @@ package com.javaspringboot.api.alkemyjavaspringboot.api.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -34,9 +36,13 @@ public class Pelicula implements Serializable {
 
     
     @ManyToMany(mappedBy = "movieList")
+    @JsonIgnore
     private Set<Personaje> characterList = new HashSet<>();
+    
+    
 
     @ManyToOne
+    @JoinColumn(name="GENDER_ID")
     private Genero gender;
 
     public Pelicula() {
